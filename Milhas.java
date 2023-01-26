@@ -15,5 +15,6 @@ public class Milhas {
             
             kmph += 0.5;
         }
+        ent.close();
     }
 }
