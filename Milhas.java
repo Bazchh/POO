@@ -1,5 +1,5 @@
-import java.util.Scanner;
-import java.text.DecimalFormat;
+import java.util.Scanner; //Usado para criar um scanner que vai ler algum valor inserido(string,inteiro, float, double,etc)
+import java.text.DecimalFormat; //Usado para mudar o formato que uma variavel é exibida numa saida de texto na tela
 public class Milhas {
     public static void main(String[] args) {
         double kmph = 0.0, mps, mph, fps;
