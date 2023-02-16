@@ -1,48 +1,62 @@
 public class Fatura {
-    private String numeroDeIdentificacao;
+    private String identificacao;
     private String desc;
-    private int quantidadeComprada; 
-    private double precoUnitario;
+    private int qntd;
+    private double preco;
 
-    public Fatura(String numeroDeIdentificacao, String desc, int quantidadeComprada, double precoUnitario) {
-        this.numeroDeIdentificacao = numeroDeIdentificacao;
+    Fatura (String identificacao, String desc, int qntd, double preco){
+        this.identificacao = identificacao;
         this.desc = desc;
-        this.quantidadeComprada = quantidadeComprada;
-        this.precoUnitario = precoUnitario;
+        this.qntd = qntd;
+        this.preco = preco;
+        setPreco(preco);
+        setQntd(qntd);
     }
 
-    public String getNumeroDeIdentificacao() {
-        return numeroDeIdentificacao;
+    public String getIdentificacao() {
+        return identificacao;
     }
-    public void setNumeroDeIdentificacao(String numeroDeIdentificacao) {
-        this.numeroDeIdentificacao = numeroDeIdentificacao;
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
-    public int getQuantidadeComprada() {
-        return quantidadeComprada;
-    }
-    public void setQuantidadeComprada(int quantidadeComprada) {
-        if(this.quantidadeComprada > 0){
-            this.quantidadeComprada = quantidadeComprada;
-        } else {
-            this.quantidadeComprada = 0;
-        }
-        
-    }
-    public double getPrecoUnitario() {
-        return precoUnitario;
-    }
-    public void setPrecoUnitario(double precoUnitario) {
-        this.precoUnitario = precoUnitario;
-    }   
 
-    public double calculoTotal(){
-        return this.quantidadeComprada * this.precoUnitario;
+    public int getQntd() {
+        return qntd;
     }
-    
+
+    public void setQntd(int qntd) {
+        if(qntd < 0){
+            this.qntd = 0;
+        } 
+    }
+
+    public double getPreco() {
+        return this.preco;
+    }
+
+     public void setPreco(double preco) {
+        if(preco < 0.0){
+            this.preco = 0.0;
+            
+        } else {
+             this.preco = preco;
+        }
+    }
+
+void imprimeDados(){
+    System.out.println("identificação: "+this.identificacao);
+    System.out.println("descrição: "+this.desc);
+    System.out.println("preço: "+this.preco);
+    System.out.println("quantidade: "+this.qntd);
+    }
+
 }
