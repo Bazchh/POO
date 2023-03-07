@@ -16,6 +16,18 @@ public class int calculaDeterminante(){
     return determinante;
 }
 
+public class void imprimeMatriz(){
+int lin;
+int col;
+   
+   for(lin = 0; lin < 2; lin++){
+      for(col = 0; col < 2; col++){
+         System.out.println(this.matriz[lin][col]);      
+      }
+      System.out.print("\n");
+   }
+}
+   
 public class void imprimeDeterminante(int n){
     System.out.println(n);
 }
