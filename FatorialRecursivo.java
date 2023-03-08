@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class fatrecurs {
+public class FatorialRecursivo {
  public static void main(String[] args) {
     int n;
     Scanner ent = new Scanner(System.in);
