@@ -1,5 +1,3 @@
-package Cliente;
-
 
 import java.util.Scanner;
 
@@ -17,14 +15,16 @@ public class TestaCliente {
             System.out.println("Insira o id do cliente: ");
             id = ent.nextInt();
             System.out.println("Insira o nome do cliente: ");
-            nome = ent.nextLine();
+            nome = ent.next();
             System.out.println("Insira a idade do cliente: ");
-            idade = ent.nextLine();
+            idade = ent.next();
             System.out.println("Insira o telefone do cliente: ");
-            telefone = ent.nextLine();
+            telefone = ent.next();
             listaClientes.adicionaCliente(c, id, nome, idade, telefone);
-        }while(id < 0 );
-
+        }while(id > 0 );
+        
+        listaClientes.imprimeClientes();
+        
         ent.close();
     }
 }

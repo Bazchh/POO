@@ -1,4 +1,3 @@
-package Cliente;
 
 public class Cliente {
     private int id;
@@ -12,5 +11,9 @@ public class Cliente {
         this.idade = idade;
         this.telefone = telefone;
     }
-
+    
+    public String toString(){
+        return "Id do cliente: "+id+" Nome do cliente: "+nome+" Idade: "+idade+" Telefone: "+telefone;
+    }
 }
+
