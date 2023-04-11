@@ -1,4 +1,3 @@
-package paciente;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -6,8 +5,8 @@ import java.util.Queue;
 
 public class Consultorio {
 
-    protected Queue<Consulta> pacientesPrioridade = new LinkedList<>();
-    protected Queue<Consulta> pacientes = new LinkedList<>();
+    protected Queue<Paciente> pacientesPrioridade = new LinkedList<>();
+    protected Queue<Paciente> pacientes = new LinkedList<>();
     private int qtdPacientes;
 
     Consultorio(){
@@ -15,17 +14,17 @@ public class Consultorio {
     }
 
     public boolean chegaPaciente( int RG, int idade) {
-        Consulta papel = new Consulta(RG, idade);
+        Paciente paciente = new Paciente(RG, idade);
         boolean atendimento = true;
         if(qtdPacientes <= 20 ){
 
                 if(idade >= 60){
                 System.out.println("Chegou um paciente da fila prioritaria");
-                this.pacientesPrioridade.add(papel);
+                this.pacientesPrioridade.add(paciente);
                 this.qtdPacientes++;
                     } else {
                 System.out.println("Chegou um paciente na fila");        
-                this.pacientes.add(papel);
+                this.pacientes.add(paciente);
                 this.qtdPacientes++;
                 }
                 
@@ -42,8 +41,10 @@ public class Consultorio {
 
         if(this.pacientesPrioridade.size() > 0){
             this.pacientesPrioridade.remove();
-        } else if (this.pacientesPrioridade.size() == 0){
+            System.out.println("Paciente da fila prioritaria atendido.");
+        } else if (this.pacientesPrioridade.size() == 0 && this.pacientes.size() > 0){
             this.pacientes.remove();
+            System.out.println("Paciente da fila normal atendido.");
         }
         
         if(this.pacientes.size() == 0 && this.pacientesPrioridade.size() == 0){
