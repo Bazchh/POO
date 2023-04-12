@@ -43,7 +43,7 @@ public class Consultorio {
           if(!this.pacientesPrioridade.isEmpty()){
             this.pacientesPrioridade.remove();
             System.out.println("Foi atendido um paciente da fila prioritaria");
-        } else if (!this.pacientesPrioridade.isEmpty()){
+        } else if (!this.pacientes.isEmpty()){
             this.pacientes.remove();
             System.out.println("Foi atendido um paciente da fila comum");
         }
