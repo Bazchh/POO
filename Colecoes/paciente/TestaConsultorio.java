@@ -16,7 +16,6 @@ public class TestaConsultorio {
         int idade;
         boolean atendimento = true;
         boolean atendimento2 = true;
-        int atendidos;
         public void run() {
                 RG = geradorRandom();
                 idade = geradorRandom();
@@ -26,12 +25,12 @@ public class TestaConsultorio {
                     public void run(){
                         if(atendimento2 == true){
                             atendimento2 = consultorio.atendePaciente();
-                            atendidos++;
-                            System.out.println(atendidos);
-                        }
-                        else if (atendimento2 == false){
+                            System.out.println(atendimento2);
                             timer2.cancel();
                         }
+                        
+                            
+                        
                     }
                 },delay+2000,interval+6000);
                 if(atendimento == false && atendimento2 == false){
