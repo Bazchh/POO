@@ -20,12 +20,10 @@ public class TestaConsultorio {
                 RG = geradorRandom();
                 idade = geradorRandom();
                 atendimento = consultorio.chegaPaciente(RG, idade);
-                System.out.println(consultorio.getQtdPacientes());
                 timer.schedule(new TimerTask(){
                     public void run(){
                         if(atendimento2 == true){
                             atendimento2 = consultorio.atendePaciente();
-                            System.out.println(atendimento2);
                         }
                           
                     }
