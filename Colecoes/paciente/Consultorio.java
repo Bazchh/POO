@@ -48,7 +48,7 @@ public class Consultorio {
             System.out.println("Foi atendido um paciente da fila comum");
         }
         
-        if(this.pacientes.isEmpty() && this.pacientesPrioridade.isEmpty()){
+        if(this.pacientes.isEmpty() && this.pacientesPrioridade.isEmpty() && this.qtdPacientes == 20){
             situacao = false;
         }
 }
