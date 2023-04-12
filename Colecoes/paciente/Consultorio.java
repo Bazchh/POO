@@ -1,3 +1,4 @@
+package paciente;
 
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -6,7 +7,7 @@ import java.util.Queue;
 public class Consultorio {
 
     protected Queue<Paciente> pacientesPrioridade = new LinkedList<>();
-    protected Queue<Paciente> pacientes = new LinkedList<>();
+    protected PriorityQueue<Paciente> pacientes = new PriorityQueue<>();
     private int qtdPacientes;
 
     Consultorio(){
@@ -16,15 +17,14 @@ public class Consultorio {
     public boolean chegaPaciente( int RG, int idade) {
         Paciente paciente = new Paciente(RG, idade);
         boolean atendimento = true;
-        if(qtdPacientes <= 20 ){
-
+        if(qtdPacientes < 20 ){
                 if(idade >= 60){
-                System.out.println("Chegou um paciente da fila prioritaria");
-                this.pacientesPrioridade.add(paciente);
+                System.out.println("Chegou um paciente na fila prioritaria");
+                this.pacientesPrioridade.offer(paciente);
                 this.qtdPacientes++;
                     } else {
                 System.out.println("Chegou um paciente na fila");        
-                this.pacientes.add(paciente);
+                this.pacientes.offer(paciente);
                 this.qtdPacientes++;
                 }
                 
@@ -39,19 +39,24 @@ public class Consultorio {
 
         boolean situacao = true;
 
-        if(this.pacientesPrioridade.size() > 0){
+        if(!this.pacientes.isEmpty() || !this.pacientesPrioridade.isEmpty()){
+          if(!this.pacientesPrioridade.isEmpty()){
             this.pacientesPrioridade.remove();
-            System.out.println("Paciente da fila prioritaria atendido.");
-        } else if (this.pacientesPrioridade.size() == 0 && this.pacientes.size() > 0){
+            System.out.println("Foi atendido um paciente da fila prioritaria");
+        } else if (!this.pacientesPrioridade.isEmpty()){
             this.pacientes.remove();
-            System.out.println("Paciente da fila normal atendido.");
+            System.out.println("Foi atendido um paciente da fila comum");
         }
         
-        if(this.pacientes.size() == 0 && this.pacientesPrioridade.size() == 0){
-        situacao = true;
+        if(this.pacientes.isEmpty() && this.pacientesPrioridade.isEmpty()){
+            situacao = false;
         }
-
+}
         return situacao;
+    }
+
+    public int getQtdPacientes() {
+        return qtdPacientes;
     } 
 
     
